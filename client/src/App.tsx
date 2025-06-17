@@ -12,6 +12,8 @@ import Candidates from "@/pages/Candidates";
 import Pipeline from "@/pages/Pipeline";
 import Interviews from "@/pages/Interviews";
 import Layout from "@/components/Layout";
+import Login from "@/pages/Login";
+import Signup from "@/pages/Signup";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -26,6 +28,8 @@ function Router() {
 
   return (
     <Switch>
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       {!isAuthenticated ? (
         <Route path="/" component={Landing} />
       ) : (

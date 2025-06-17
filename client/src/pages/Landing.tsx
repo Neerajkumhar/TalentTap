@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Landing() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -37,7 +40,13 @@ export default function Landing() {
           </p>
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <Button 
-              onClick={() => window.location.href = '/login'}
+              onClick={() => {
+                if (isAuthenticated) {
+                  window.location.href = "/";
+                } else {
+                  window.location.href = "/login";
+                }
+              }}
               className="w-full sm:w-auto bg-primary hover:bg-primary-600 text-lg px-8 py-3"
             >
               Get Started

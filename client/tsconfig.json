@@ -15,7 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["react", "react-dom"]
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@shared/*": ["../shared/*"],
+      "@assets/*": ["../attached_assets/*"]
+    },
+    "types": ["react", "react-dom", "vite/client"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]

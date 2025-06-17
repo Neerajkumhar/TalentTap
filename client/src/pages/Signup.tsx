@@ -18,7 +18,16 @@ export default function Signup() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Signup failed");
-      setSuccess("Account created! You can now log in.");
+      // Auto-login after signup
+      const loginRes = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const loginData = await loginRes.json();
+      if (!loginRes.ok) throw new Error(loginData.message || "Auto-login failed");
+      localStorage.setItem("token", loginData.token);
+      window.location.href = "/";
     } catch (err: any) {
       setError(err.message);
     }

@@ -15,6 +15,7 @@ import { insertCandidateSchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { isUnauthorizedError } from "@/lib/authUtils";
 import { z } from "zod";
+import { Candidate } from "@shared/schema";
 
 const candidateFormSchema = insertCandidateSchema.extend({
   firstName: z.string().min(1, "First name is required"),
@@ -33,7 +34,7 @@ export default function Candidates() {
       const url = searchQuery ? `/api/candidates?search=${encodeURIComponent(searchQuery)}` : "/api/candidates";
       const response = await fetch(url, { credentials: "include" });
       if (!response.ok) throw new Error(`${response.status}: ${response.statusText}`);
-      return await response.json();
+      return (await response.json()) as Candidate[]; // Explicitly type API response
     },
     retry: false,
   });
@@ -320,7 +321,7 @@ export default function Candidates() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {candidates?.length ? candidates.map((candidate: any) => (
+          {candidates?.length ? candidates.map((candidate: Candidate) => (
             <Card key={candidate.id} className="material-elevation-1 hover-elevation transition-shadow duration-300 cursor-pointer">
               <CardHeader>
                 <div className="flex items-center space-x-3">
@@ -361,6 +362,7 @@ export default function Candidates() {
 
                   {candidate.skills && candidate.skills.length > 0 && (
                     <div className="flex flex-wrap gap-1">
+                      {/* skills is string[]; ensure backend and frontend agree on this type */}
                       {candidate.skills.slice(0, 3).map((skill: string, index: number) => (
                         <Badge key={index} variant="secondary" className="text-xs">
                           {skill}
