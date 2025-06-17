@@ -1,0 +1,154 @@
+Create a modern, professional React-based Applicant Tracking System called "TalentTap" with the following specifications:
+
+## Technical Stack Requirements
+- Frontend: React.js with Redux state management and Material-UI components [2]
+- Backend: Node.js with Express.js framework [10]
+- Database: MongoDB for flexible document storage [10]
+- Authentication: JWT with role-based access control [2]
+- Email System: Nodemailer integration with customizable templates [10]
+- Calendar: Google Calendar/Outlook integration for interview scheduling [10]
+
+## Core Features to Implement
+
+### 1. Dashboard & Analytics
+- Clean, modern dashboard with recruitment metrics and KPI cards [21][25]
+- Interactive charts showing application funnel, time-to-hire, and source effectiveness [25]
+- Real-time notifications panel for new applications and interview reminders [25]
+- Customizable widget layout with drag-and-drop functionality [22]
+
+### 2. Job Management System
+- Job posting creation with rich text editor and custom fields [10]
+- Multi-platform job distribution capabilities [10]
+- Job template library for quick posting [10]
+- Advanced job search and filtering options [15]
+
+### 3. Applicant Tracking & Management
+- Kanban-style recruitment pipeline with drag-and-drop candidate movement [11][25]
+- Advanced resume parsing with automatic profile creation [10][22]
+- Bulk candidate actions and status updates [25]
+- Candidate timeline showing all interactions and touchpoints [25]
+- Smart candidate matching and recommendation engine [22]
+
+### 4. Interview & Communication Tools
+- Integrated calendar system with availability management [10]
+- Automated email templates and sequences [10]
+- Interview scheduling with calendar invitations [10]
+- Communication history tracking for each candidate [25]
+- Video interview integration capabilities [10]
+
+### 5. Collaboration & Team Features
+- Multi-user access with role-based permissions [10]
+- Hiring team collaboration tools and shared notes [10]
+- Internal messaging and feedback system [10]
+- Evaluation forms with custom scoring criteria [10]
+
+## UI/UX Design Requirements
+
+### Design Aesthetics [21][25]
+- Modern, clean interface with plenty of white space
+- Professional color scheme using soft pastels with vibrant accent colors
+- Card-based layout with subtle shadows and rounded corners
+- Responsive design optimized for desktop, tablet, and mobile devices [21]
+- Consistent typography using Google Fonts (Inter or Roboto)
+
+### Navigation & Layout [25]
+- Clean top navigation bar with company logo and user profile
+- Sidebar navigation with collapsible menu items
+- Breadcrumb navigation for deep pages [17]
+- Floating action buttons for primary actions [17]
+- Sticky elements for important information like candidate pipeline status [25]
+
+### Interactive Elements [17]
+- Hover effects on clickable elements
+- Loading states and progress indicators [17]
+- Smooth transitions and micro-animations
+- Toast notifications for user feedback [17]
+- Modal dialogs for forms and detailed views
+
+### Data Visualization [25]
+- Dashboard charts using Chart.js or D3.js integration
+- Progress bars for application pipeline stages [25]
+- Status badges with color coding [17]
+- Data tables with sorting, filtering, and pagination [17]
+- Visual candidate journey mapping
+
+## Key Pages to Include [21]
+
+1. **Main Dashboard** - Overview with metrics, recent activity, and quick actions
+2. **Jobs Management** - Grid and list views of all job postings
+3. **Job Details** - Individual job posting management and analytics
+4. **Candidates Database** - Searchable candidate profiles with advanced filters
+5. **Candidate Profile** - Detailed candidate view with documents and history
+6. **Recruitment Pipeline** - Kanban board for managing candidate flow
+7. **Interview Scheduler** - Calendar integration with booking management
+8. **Team Collaboration** - Internal messaging and feedback tools
+9. **Analytics & Reports** - Comprehensive recruitment metrics and insights
+10. **Settings & Configuration** - System preferences and user management
+
+## User Experience Features [5][25]
+
+### For Recruiters
+- One-click candidate status updates
+- Bulk email capabilities with template selection
+- Quick candidate comparison tools
+- Mobile-responsive interface for on-the-go access [22]
+- Keyboard shortcuts for power users
+
+### For Hiring Managers
+- Simplified candidate review interface
+- Collaborative evaluation tools
+- Interview feedback forms
+- Approval workflows for job postings
+
+### For Candidates
+- Clean application submission process
+- Application status tracking portal
+- Document upload with progress indicators
+- Interview scheduling self-service
+
+## Technical Implementation Guidelines [2][5]
+
+### Component Architecture
+- Create reusable UI components (Button, Card, Modal, etc.)
+- Implement proper state management with Redux
+- Use React Hooks for functional components
+- Ensure component modularity and reusability [2]
+
+### Performance Optimization
+- Lazy loading for route components
+- Image optimization and caching
+- API response caching
+- Efficient re-rendering with React.memo
+
+### Code Quality
+- TypeScript integration for better type safety
+- ESLint and Prettier configuration
+- Comprehensive error handling
+- Unit testing with Jest and React Testing Library
+
+## Integration Requirements [2]
+
+### Third-Party Services
+- Email service integration (SendGrid or similar)
+- Cloud storage for resume/document management
+- Calendar APIs (Google Calendar, Outlook)
+- Video conferencing tools (Zoom, Teams)
+- Social media integration for candidate sourcing
+
+### API Design
+- RESTful API endpoints with proper HTTP methods
+- JWT authentication middleware
+- Input validation and sanitization
+- Comprehensive error responses
+- API documentation with Swagger
+
+## Accessibility & Standards [17]
+
+- WCAG 2.1 AA compliance
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast mode support
+- Semantic HTML structure
+- ARIA labels for interactive elements
+
+Build this as a production-ready application with clean, maintainable code, comprehensive error handling, and a user interface that rivals top-tier SaaS platforms. Focus on creating an intuitive user experience that streamlines the entire recruitment process while maintaining professional aesthetics throughout.
