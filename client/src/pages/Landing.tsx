@@ -15,7 +15,7 @@ export default function Landing() {
               <h1 className="text-xl font-medium text-gray-900">TalentTap</h1>
             </div>
             <Button 
-              onClick={() => window.location.href = '/api/login'}
+              onClick={() => window.location.href = '/login'}
               className="bg-primary hover:bg-primary-600"
             >
               Sign In
@@ -37,7 +37,7 @@ export default function Landing() {
           </p>
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <Button 
-              onClick={() => window.location.href = '/api/login'}
+              onClick={() => window.location.href = '/login'}
               className="w-full sm:w-auto bg-primary hover:bg-primary-600 text-lg px-8 py-3"
             >
               Get Started
