@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [role, setRole] = useState("recruiter");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -14,7 +18,7 @@ export default function Signup() {
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, firstName, lastName, role }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Signup failed");
@@ -34,32 +38,82 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-80">
-        <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-        {error && <div className="text-red-500 mb-2">{error}</div>}
-        {success && <div className="text-green-600 mb-2">{success}</div>}
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="w-full mb-2 p-2 border rounded"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="w-full mb-4 p-2 border rounded"
-          required
-        />
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Sign Up</button>
-        <div className="mt-2 text-sm text-center">
-          Already have an account? <a href="/login" className="text-blue-600">Login</a>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-lg material-elevation-2">
+        <div className="flex flex-col items-center mb-6">
+          <div className="w-12 h-12 bg-primary rounded flex items-center justify-center mb-2">
+            <span className="material-icons text-white text-2xl">work</span>
+          </div>
+          <h1 className="text-2xl font-bold text-gray-900">Create Your Account</h1>
+          <p className="text-gray-500 text-sm mt-1">Sign up to start using TalentTap.</p>
         </div>
-      </form>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {error && <div className="text-red-500 text-sm mb-2 text-center">{error}</div>}
+          {success && <div className="text-green-600 text-sm mb-2 text-center">{success}</div>}
+          <div className="flex gap-2">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={e => setFirstName(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={e => setLastName(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+            <select
+              value={role}
+              onChange={e => setRole(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="recruiter">Recruiter</option>
+              <option value="hiring_manager">Hiring Manager</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <Button type="submit" className="w-full bg-primary hover:bg-primary-600 text-white text-base py-2 rounded">Sign Up</Button>
+        </form>
+        <div className="mt-4 text-sm text-center text-gray-600">
+          Already have an account? <a href="/login" className="text-primary hover:underline">Login</a>
+        </div>
+      </div>
     </div>
   );
 }

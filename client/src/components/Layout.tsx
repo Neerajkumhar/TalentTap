@@ -81,7 +81,7 @@ export default function Layout({ children }: LayoutProps) {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => window.location.href = '/profile'}>
                     <span className="material-icons mr-2 text-sm">person</span>
                     Profile
                   </DropdownMenuItem>
@@ -93,7 +93,10 @@ export default function Layout({ children }: LayoutProps) {
                     <span className="material-icons mr-2 text-sm">help</span>
                     Help & Support
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => window.location.href = '/api/logout'}>
+                  <DropdownMenuItem onClick={() => {
+                    localStorage.removeItem("token");
+                    window.location.href = "/login";
+                  }}>
                     <span className="material-icons mr-2 text-sm">logout</span>
                     Sign Out
                   </DropdownMenuItem>

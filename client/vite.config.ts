@@ -24,5 +24,6 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    historyApiFallback: true,
   },
 });

@@ -14,6 +14,7 @@ import Interviews from "@/pages/Interviews";
 import Layout from "@/components/Layout";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
+import Profile from "@/pages/Profile";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -30,6 +31,7 @@ function Router() {
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/profile" component={Profile} />
       {!isAuthenticated ? (
         <Route path="/" component={Landing} />
       ) : (
